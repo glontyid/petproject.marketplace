@@ -8,6 +8,6 @@ $btn-hbgcolor: #000;
 $btn-color: #000;
 $btn-hcolor: #fff;
 
-$container-width: 90%;
+$container-width: calc(100% - 40px);
 
 $duration: 0.15s;
