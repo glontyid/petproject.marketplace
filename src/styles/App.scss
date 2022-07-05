@@ -1,0 +1,7 @@
+@import './variables';
+
+.App {
+  max-width: $container-width;
+  margin: 0 auto;
+  height: calc(100vh + 1px);
+}
