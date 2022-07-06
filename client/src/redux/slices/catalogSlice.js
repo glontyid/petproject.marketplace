@@ -1,6 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit'
+import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
+  preloader: true,
   products: [],
 }
 
@@ -10,6 +11,7 @@ export const catalogSlice = createSlice({
   reducers: {
     getProducts: (state, action) => {
       state.products = action.payload
+      state.preloader = false
     },
   },
 })
