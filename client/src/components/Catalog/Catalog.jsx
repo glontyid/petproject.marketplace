@@ -1,7 +1,7 @@
 import React from 'react'
 
-export default function Catalog() {
+export default function Catalog({products}) {
   return (
-    <div>Catalog</div>
+    <div>Catalog products length {products.length}</div>
   )
 }
