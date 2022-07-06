@@ -1,62 +1,72 @@
 @import '../../styles/variables';
 
 .header {
-    background-color: #FF7B7B;
-    padding: 20px 0;
+  background-color: $background;
+  padding: 20px 0;
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    max-width: $container-width;
+    width: 100%;
+  }
+
+  &__wrapper {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1440px;
+    margin: 0 auto;
+  }
+
+  &__logo-block {
+    max-width: 380px;
+    width: 100%;
+    background-color: #D9D9D9;
     display: flex;
     justify-content: center;
-    &__container {
-        max-width: $container-width;
-        width: 100%;
+    align-items: center;
+
+    a {
+      font-size: 20px;
+      line-height: 1;
+      text-decoration: none;
+      color: #000000;
     }
-    &__wrapper {
-        display: flex;
-        justify-content: space-between;
-    }
-    &__logo-block {
-        max-width: 380px;
-        width: 100%;
-        background-color: #D9D9D9;
-        height: 94px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        a {
-            font-size: 40px;
-            line-height: 1;
-            text-decoration: none;
-            color: #000000;
-        }
-    }
-    &__navigation-block {
-        display: flex;
-        padding: 0 10px;
-        max-width: 860px;
-        width: 100%;
-        justify-content: space-between;
-        align-items: center;
-    }
-    &__navigation-item {
-        font-size: 28px;
-        font-weight: 600;
-        line-height: 1;
-        padding: 20px;
-        background-color: #e5e5e5;
-    }
-    &__login-block {
-        max-width: 380px;
-        width: 100%;
-    }
-    &__login-button {
-        max-width: 100%;
-        width: 100%;
-        background-color: #D9D9D9;
-        height: 94px;
-        font-size: 40px;
-        line-height: 1;
-        font-weight: normal;
-        border: none;
-        justify-content: center;
-        align-items: center;
-    }
+  }
+
+  &__navigation-block {
+    display: flex;
+    padding: 0 10px;
+    max-width: 860px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &__navigation-item {
+    font-size: 18px;
+    font-weight: 600;
+    line-height: 1;
+    padding: 20px;
+    background-color: #e5e5e5;
+  }
+
+  &__login-block {
+    display: flex;
+    align-items: center;
+    max-width: 380px;
+    width: 100%;
+  }
+
+  &__login-button {
+    max-width: 100%;
+    width: 100%;
+    background-color: #D9D9D9;
+    font-size: 40px;
+    line-height: 1;
+    font-weight: normal;
+    border: none;
+    justify-content: center;
+    align-items: center;
+  }
 }

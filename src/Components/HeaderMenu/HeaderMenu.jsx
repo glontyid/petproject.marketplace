@@ -1,5 +1,6 @@
+import { Button, ButtonGroup } from "@mui/material";
 import React from "react";
-import '../HeaderMenu/HeaderMenu.scss';
+import './HeaderMenu.scss';
 
 function HeaderMenu () {
 	return (
@@ -7,17 +8,17 @@ function HeaderMenu () {
 			<div className="header__container">
 				<div className="header__wrapper">
 					<div className="header__logo-block">
-					  <a href="#">Logo</a>
+					  <Button href="#">Logo</Button>
 					</div>
-					<div className="header__navigation-block">
-					  <div className="header__navigation-item">Шорты</div>
-					  <div className="header__navigation-item">Джинсы</div>
-					  <div className="header__navigation-item">Майки</div>
-					  <div className="header__navigation-item">Костюмы</div>
-					  <div className="header__navigation-item">18+</div>
-					</div>
+          <ButtonGroup variant="outlined" aria-label="outlined button group">
+            <Button>Шорты</Button>
+            <Button>Джинсы</Button>
+            <Button>Майки</Button>
+            <Button>Костюмы</Button>
+            <Button>18+</Button>
+          </ButtonGroup>
 					<div className="header__login-block">
-						<button className="header__login-button">Логин</button>
+						<Button className="header__login-button" variant="contained">Логин</Button>
 					</div>
 				</div>
 			</div>
