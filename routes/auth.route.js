@@ -12,6 +12,7 @@ router.post('/registration',
 ], 
 async (req, res) => {
   try {
+    console.log(req, res)
     const errors = validationResult(req, res);
 
     if (!errors.isEmpty()) {
