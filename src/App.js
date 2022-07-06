@@ -1,5 +1,5 @@
 import './styles/App.scss';
-import HeaderMenu from './Components/HeaderMenu/HeaderMenu';
+import HeaderMenu from './components/HeaderMenu/HeaderMenu';
 
 function App() {
   return (
