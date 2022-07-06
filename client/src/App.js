@@ -1,9 +1,13 @@
 import React, {useEffect} from 'react';
 import {useDispatch, useSelector} from 'react-redux';
+import {BrowserRouter, Route, Routes} from 'react-router-dom';
 import './styles/App.scss';
 import HeaderMenu from './components/HeaderMenu/HeaderMenu';
 import { getProducts } from './redux/slices/catalogSlice';
 import axios from 'axios';
+import Cart from './components/Cart/Cart';
+import Catalog from './components/Catalog/Catalog';
+import Registration from './components/Registration/Registration';
 
 function App() {
   const dispatch = useDispatch();
@@ -19,7 +23,14 @@ function App() {
 
   return (
     <div className="App">
-      <HeaderMenu/>
+      <BrowserRouter>
+        <HeaderMenu/>
+        <Routes>
+          <Route path="/cart" exact element={<Cart />} />
+          <Route path="/" exact element={<Catalog />} />
+          <Route path="/registration" exact element={<Registration />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
