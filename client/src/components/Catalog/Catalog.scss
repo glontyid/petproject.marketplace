@@ -1,0 +1,14 @@
+.catalog {
+    background-color: #110d14;
+    padding: 20px;
+    &__wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: flex-start;
+    }
+    &__more-products-block {
+        display: flex;
+        margin-top: 20px;
+        justify-content: center;
+    }
+}

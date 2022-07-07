@@ -1,0 +1,21 @@
+.product {
+    display: flex;
+    justify-content: center;
+    max-width: calc(100% / 3);
+    width: 100%;
+    margin-bottom: 20px;
+    &__wrapper {
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__price-block {
+        margin-top: 15px;
+    }
+    &__busket-block {
+        margin-top: 15px;
+    }
+    span {
+        color: #ffffff;
+    }
+}
