@@ -1,82 +1,54 @@
-import { Button, TextField, Typography } from '@mui/material';
+import { Box, Tab, Tabs } from '@mui/material';
 import React, { useState, useContext } from 'react';
 import { AuthContext } from '../../../context/auth-context';
-import axios from 'axios';
-import { Link } from 'react-router-dom';
+import AuthForm from './AuthForm/AuthForm';
+import RegForm from './RegForm/RegForm';
 
 const Authorization = ({ onClose }) => {
   const { login } = useContext(AuthContext);
-  const [form, setForm] = useState({ email: '', password: '', admin: false });
-  const hasLogin = form.email;
-  const hasPassword = form.password;
-
-  const inputHandler = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.value });
+  const [value, setValue] = useState(0);
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
   };
 
-  const checkboxHandler = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.checked });
-  };
+  function TabPanel(props) {
+    const { children, value, index, ...other } = props;
 
-  const loginHandler = async () => {
-    try {
-      await axios
-        .post('/api/auth/login', {
-          ...form,
-          headers: { contentType: 'application/json' },
-        })
-        .then((resp) => {
-          login(resp.data.token, resp.data.userId, resp.data.isAdmin);
-          document.location.href = '/';
-        });
-    } catch (error) {
-      console.log(error);
-      // errorHandler();
-    }
-  };
+    return (
+      <div
+        role="tabpanel"
+        hidden={value !== index}
+        id={`simple-tabpanel-${index}`}
+        aria-labelledby={`simple-tab-${index}`}
+        {...other}>
+        {value === index && <Box sx={{ p: 3 }}>{children}</Box>}
+      </div>
+    );
+  }
+
+  function a11yProps(index) {
+    return {
+      id: `simple-tab-${index}`,
+      'aria-controls': `simple-tabpanel-${index}`,
+    };
+  }
 
   return (
     <div>
-      <Typography variant="h5" component="h5" margin="dense">
-        Авторизация
-      </Typography>
-      <form className="auth-form" onSubmit={(e) => e.preventDefault()}>
-        <div className="auth-form__input-wrapper">
-          <TextField
-            type="text"
-            name="email"
-            onChange={inputHandler}
-            label="Логин"
-            variant="outlined"
-            margin="dense"
-            fullWidth
-          />
-        </div>
-        <div className="auth-form__input-wrapper">
-          <TextField
-            type="password"
-            name="password"
-            onChange={inputHandler}
-            label="Пароль"
-            variant="outlined"
-            margin="dense"
-            fullWidth
-          />
-        </div>
-        <div className="auth-form__button-wrapper">
-          <div className="auth-form__button-wrapper-inner">
-            <Button
-              type="submit"
-              className={hasLogin && hasPassword ? 'enabled' : 'disabled'}
-              variant="text"
-              margin="normal"
-              onClick={loginHandler}>
-              Войти
-            </Button>
-          </div>
-          <Link to="/registration">Зарегистрироваться</Link>
-        </div>
-      </form>
+      <Box sx={{ width: '100%' }}>
+        <Box>
+          <Tabs value={value} onChange={handleChange} aria-label="basic tabs example" centered>
+            <Tab label="Авторизация" {...a11yProps(0)} />
+            <Tab label="Регистрация" {...a11yProps(1)} />
+          </Tabs>
+        </Box>
+        <TabPanel value={value} index={0}>
+          <AuthForm login={login} handleChange={handleChange} />
+        </TabPanel>
+        <TabPanel value={value} index={1}>
+          <RegForm handleChange={handleChange} />
+        </TabPanel>
+      </Box>
     </div>
   );
 };

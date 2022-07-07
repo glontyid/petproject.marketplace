@@ -8,9 +8,9 @@ import { useAuth } from './hooks/auth-hook';
 import axios from 'axios';
 import Cart from './components/Cart/Cart';
 import Catalog from './components/Catalog/Catalog';
-import Registration from './components/HeaderMenu/Registration/Registration';
 import HeaderMenu from './components/HeaderMenu/HeaderMenu';
 import './styles/App.scss';
+import Profile from './components/Profile/Profile';
 
 function App() {
   const {login, logout, token, userId, isReady, admin} = useAuth();
@@ -23,8 +23,6 @@ function App() {
       dispatch(getProducts(resp.data))
     })
   }, []);
-
-  console.log('isLogin', isLogin)
 
   return (
     <AuthContext.Provider value={{login, logout, token, userId, isReady, isLogin, admin}}>
@@ -39,7 +37,7 @@ function App() {
           <Routes>
             <Route path="/cart" exact element={<Cart />} />
             <Route path="/" exact element={<Catalog products={products}/>} />
-            <Route path="/registration" exact element={<Registration />} />
+            <Route path="/profile" exact element={<Profile />} />
           </Routes>
         }
       </BrowserRouter>
