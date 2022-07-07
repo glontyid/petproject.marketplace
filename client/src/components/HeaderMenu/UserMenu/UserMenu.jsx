@@ -1,5 +1,7 @@
 import { Avatar, Button, Menu, MenuItem } from '@mui/material';
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import './UserMenu.scss';
 
 const UserMenu = ({ logout }) => {
   const [anchorEl, setAnchorEl] = useState(null);
@@ -10,12 +12,16 @@ const UserMenu = ({ logout }) => {
 
   const handleClose = () => {
     setAnchorEl(null);
+  };
+
+  const logoutFn = () => {
+    setAnchorEl(null);
     logout();
   };
 
   return (
-    <div>
-      <Avatar>H</Avatar>
+    <div className="user-menu">
+      <Avatar>Н</Avatar>
       <Button
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
@@ -31,7 +37,10 @@ const UserMenu = ({ logout }) => {
         MenuListProps={{
           'aria-labelledby': 'basic-button',
         }}>
-        <MenuItem onClick={handleClose}>Logout</MenuItem>
+        <MenuItem onClick={handleClose}>
+          <Link to="/profile">Профиль</Link>
+        </MenuItem>
+        <MenuItem onClick={logoutFn}>Выйти</MenuItem>
       </Menu>
     </div>
   );

@@ -22,7 +22,6 @@ function HeaderMenu({ isLogin, logout }) {
   const handleOpen = () => setOpen(true);
   const handleClose = () => {
     setOpen(false);
-    document.location.href = '/';
   };
 
   return (
@@ -41,11 +40,9 @@ function HeaderMenu({ isLogin, logout }) {
           </ButtonGroup>
           <div className="header__login-block">
             {!isLogin ? (
-              <Link to="/login">
-                <Button className="header__login-button" variant="contained" onClick={handleOpen}>
-                  Логин
-                </Button>
-              </Link>
+              <Button className="header__login-button" variant="contained" onClick={handleOpen}>
+                Логин
+              </Button>
             ) : (
               <div className="header__login-block_authorized">
                 <UserMenu logout={logout} />

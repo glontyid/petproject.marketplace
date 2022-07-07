@@ -6,7 +6,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 app.use(express.json({extended: true}));
-app.use('/api/auth', require('./routes/auth.route'));
+app.use('/api/auth/', require('./routes/auth.route'));
 app.use('/api/catalog', require('./routes/catalog.route'));
 app.use('/api/cart', require('./routes/cart.route'));
 app.use('/api/profile', require('./routes/profile.route'));
