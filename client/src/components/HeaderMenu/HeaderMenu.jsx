@@ -1,6 +1,5 @@
 import { Box, Button, ButtonGroup, Modal } from '@mui/material';
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Authorization from './Authorization/Authorization';
 import './HeaderMenu.scss';
 import UserMenu from './UserMenu/UserMenu';
@@ -55,7 +54,7 @@ function HeaderMenu({ isLogin, logout }) {
             aria-labelledby="modal-modal-title"
             aria-describedby="modal-modal-description">
             <Box sx={style}>
-              <Authorization onClose={handleClose} />
+              <Authorization handleClose={handleClose} />
             </Box>
           </Modal>
         </div>

@@ -21,12 +21,12 @@ const UserMenu = ({ logout }) => {
 
   return (
     <div className="user-menu">
-      <Avatar>Н</Avatar>
       <Button
         aria-controls={open ? 'basic-menu' : undefined}
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}>
+        <Avatar sx={{ mr: 1 }}>Н</Avatar>
         Пользователь
       </Button>
       <Menu

@@ -4,7 +4,7 @@ import { AuthContext } from '../../../context/auth-context';
 import AuthForm from './AuthForm/AuthForm';
 import RegForm from './RegForm/RegForm';
 
-const Authorization = ({ onClose }) => {
+const Authorization = ({ handleClose }) => {
   const { login } = useContext(AuthContext);
   const [value, setValue] = useState(0);
   const handleChange = (event, newValue) => {
@@ -43,10 +43,10 @@ const Authorization = ({ onClose }) => {
           </Tabs>
         </Box>
         <TabPanel value={value} index={0}>
-          <AuthForm login={login} handleChange={handleChange} />
+          <AuthForm login={login} handleClose={handleClose} />
         </TabPanel>
         <TabPanel value={value} index={1}>
-          <RegForm handleChange={handleChange} />
+          <RegForm setValue={setValue} />
         </TabPanel>
       </Box>
     </div>

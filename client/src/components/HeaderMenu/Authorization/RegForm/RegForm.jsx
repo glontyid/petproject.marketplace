@@ -2,9 +2,9 @@ import { Button, TextField } from '@mui/material';
 import axios from 'axios';
 import React, { useState } from 'react';
 
-const RegForm = () => {
+const RegForm = ({ setValue }) => {
   const [form, setForm] = useState({ email: '', password: '', admin: false });
-  const [loginError, setLoginError] = useState(false);
+  // const [loginError, setLoginError] = useState(false);
   const hasLogin = form.email;
   const hasPassword = form.password;
 
@@ -12,9 +12,9 @@ const RegForm = () => {
     setForm({ ...form, [event.target.name]: event.target.value });
   };
 
-  const checkboxHandler = (event) => {
-    setForm({ ...form, [event.target.name]: event.target.checked });
-  };
+  // const checkboxHandler = (event) => {
+  //   setForm({ ...form, [event.target.name]: event.target.checked });
+  // };
 
   const registrationHandler = async () => {
     try {
@@ -24,7 +24,7 @@ const RegForm = () => {
           headers: { contentType: 'application/json' },
         })
         .then((resp) => {
-          console.log(resp);
+          setValue(0);
         });
     } catch (error) {
       console.log(error);

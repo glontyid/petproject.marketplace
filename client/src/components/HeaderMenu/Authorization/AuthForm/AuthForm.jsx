@@ -1,9 +1,8 @@
 import { Button, TextField } from '@mui/material';
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import axios from 'axios';
 
-const AuthForm = ({ login }) => {
+const AuthForm = ({ login, handleClose }) => {
   const [form, setForm] = useState({ email: '', password: '', admin: false });
   const hasLogin = form.email.length;
   const hasPassword = form.password.length;
@@ -20,7 +19,7 @@ const AuthForm = ({ login }) => {
         })
         .then((resp) => {
           login(resp.data.token, resp.data.userId, resp.data.isAdmin);
-          document.location.href = '/';
+          handleClose();
         });
     } catch (error) {
       console.log(error);

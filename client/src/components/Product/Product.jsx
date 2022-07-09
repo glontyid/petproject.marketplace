@@ -1,24 +1,31 @@
-import React from "react"
-import { Button } from '@mui/material';
+import React from 'react';
+import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
 import './Product.scss';
 
-export default function Product({...product}) {
+export default function Product({ ...product }) {
   return (
-    <div className="product">
-        <div className="product__wrapper">
-            <div className="product__image-block">
-                <img src={product.image} alt="" />
-            </div>
-            <div className="product__title-block">
-                <span className="product__title">{product.name}</span>
-            </div>
-            <div className="product__price-block">
-                <span className="product__price">{product.price} ₽</span>
-            </div>      
-            <div className="product__busket-block">
-                <Button variant="outlined">Добавить в корзину</Button>
-            </div>                            
-        </div>
-    </div>
-  )
+    <Card>
+      <div className="product__wrapper">
+        <CardMedia component="img" height="194" image={product.image} alt="Paella dish" />
+        <CardContent>
+          <Typography gutterBottom variant="h5" component="div">
+            {product.name}
+          </Typography>
+          <Typography
+            variant="body2"
+            color="text.secondary"
+            className="product__description"
+            sx={{ mb: 1 }}>
+            {product.description}
+          </Typography>
+          <Typography gutterBottom variant="h6" component="div">
+            {product.price} ₽
+          </Typography>
+          <CardActions sx={{ p: 0 }}>
+            <Button size="small">Добавить в корзину</Button>
+          </CardActions>
+        </CardContent>
+      </div>
+    </Card>
+  );
 }

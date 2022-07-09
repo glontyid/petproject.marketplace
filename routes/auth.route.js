@@ -12,8 +12,9 @@ router.post('/registration',
 ], 
 async (req, res) => {
   try {
-    console.log(req, res)
     const errors = validationResult(req, res);
+
+    console.log(errors)
 
     if (!errors.isEmpty()) {
       return res.status(400).json({errors: errors.array(), message: 'некорректные данные при регистрации'});
