@@ -1,8 +1,16 @@
 import React from 'react';
 import { Button, Card, CardActions, CardContent, CardMedia, Typography } from '@mui/material';
+import { useDispatch } from 'react-redux';
 import './Product.scss';
+import { addToCart } from '../../../redux/slices/cartSlice';
 
 export default function Product({ ...product }) {
+  const dispatch = useDispatch();
+
+  const cartHandler = () => {
+    dispatch(addToCart(product));
+  };
+
   return (
     <Card>
       <div className="product__wrapper">
@@ -22,7 +30,9 @@ export default function Product({ ...product }) {
             {product.price} ₽
           </Typography>
           <CardActions sx={{ p: 0 }}>
-            <Button size="small">Добавить в корзину</Button>
+            <Button size="small" onClick={cartHandler}>
+              Добавить в корзину
+            </Button>
           </CardActions>
         </CardContent>
       </div>

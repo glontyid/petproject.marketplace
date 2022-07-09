@@ -1,6 +1,8 @@
 import { Box, Button, ButtonGroup, Modal } from '@mui/material';
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Authorization from './Authorization/Authorization';
+import Cart from './Cart/Cart';
 import './HeaderMenu.scss';
 import UserMenu from './UserMenu/UserMenu';
 
@@ -28,7 +30,7 @@ function HeaderMenu({ isLogin, logout }) {
       <div className="header__container">
         <div className="header__wrapper">
           <div className="header__logo-block">
-            <Button href="#">Logo</Button>
+            <Button>Logo</Button>
           </div>
           <ButtonGroup variant="outlined" aria-label="outlined button group">
             <Button>Шорты</Button>
@@ -47,6 +49,9 @@ function HeaderMenu({ isLogin, logout }) {
                 <UserMenu logout={logout} />
               </div>
             )}
+          </div>
+          <div className="header__cart">
+            <Cart />
           </div>
           <Modal
             open={open}

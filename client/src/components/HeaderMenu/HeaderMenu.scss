@@ -18,6 +18,11 @@
     margin: 0 auto;
   }
 
+  &__cart {
+    display: flex;
+    align-items: center;
+  }
+
   &__logo-block {
     max-width: 380px;
     width: 100%;
@@ -53,6 +58,7 @@
 
   &__login-block {
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     max-width: 380px;
     width: 100%;
